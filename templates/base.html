@@ -23,6 +23,7 @@
 
         <br><br>
 
+        {% if 'accounts' not in request.path %}
         <form action="{% url 'busca' %}" method="get">
           <div class="form-group row">
             <div class="col-12">
@@ -31,12 +32,17 @@
                 id="search-input"
                 placeholder="Pesquisar"
                 name="termo">
+
+                {%include 'parciais/messages.html' %}
+
         </form>
 
-          {%block conteudo%} {%endblock%}
+        {%  endif %}
 
       </div>
     </div>
+    {%block conteudo%} {%endblock%}
+
   </div>
 
   <!-- Bootstrap core JavaScript -->
